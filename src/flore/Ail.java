@@ -6,5 +6,5 @@ public class Ail extends Vegetal {
 		dessin[3] = 'a';
 		dessin[4] = 'A';
 	}
-	
+
 }

@@ -6,5 +6,5 @@ public class Tomate extends Vegetal {
 		dessin[3] = 't';
 		dessin[4] = 'T';
 	}
-	
+
 }

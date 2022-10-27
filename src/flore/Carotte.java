@@ -6,5 +6,5 @@ public class Carotte extends Vegetal {
 		dessin[3] = 'c';
 		dessin[4] = 'C';
 	}
-	
+
 }

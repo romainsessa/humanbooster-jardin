@@ -3,8 +3,9 @@ package flore;
 public abstract class Vegetal {
 
 	protected char[] dessin;
+
 	private Etat etat;
-	
+
 	public Vegetal() {
 		dessin = new char[6];
 		dessin[0] = '_';
@@ -13,5 +14,10 @@ public abstract class Vegetal {
 		dessin[5] = '#';
 		etat = Etat.GRAINE;
 	}
-	
+
+	@Override
+	public String toString() {
+		return String.valueOf(dessin[etat.ordinal()]);
+	}
+
 }
