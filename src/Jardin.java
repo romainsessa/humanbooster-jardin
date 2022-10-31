@@ -5,6 +5,7 @@ import java.util.Set;
 import flore.Ail;
 import flore.Betterave;
 import flore.Carotte;
+import flore.Etat;
 import flore.Tomate;
 import flore.Vegetal;
 
@@ -62,7 +63,7 @@ public class Jardin {
 		int choixVegetal = scanner.nextInt();
 
 		Vegetal v = null;
-		switch (choixVegetal) {
+		switch (choixVegetal) { // Design pattern : Factory
 		case 1:
 			v = new Ail();
 			break;
@@ -84,6 +85,34 @@ public class Jardin {
 		if (panier.get(nomVegetal) > 0) {
 			emplacements[x][y] = new Emplacement(v);
 			panier.put(nomVegetal, panier.get(nomVegetal) - 1);
+		}
+	}
+
+	public void saisonSuivante() {
+		for (int i = 0; i < longueur; i++) {
+			for (int j = 0; j < largeur; j++) {
+				Emplacement e = emplacements[i][j];
+				if (e != null) {
+					if (e.getVegetal().getEtat() == Etat.MORT) {
+						emplacements[i][j] = null;
+					} else {
+						e.getVegetal().grandir();
+					}
+				}
+			}
+		}
+	}
+	
+	public void recolter() {
+		for (int i = 0; i < longueur; i++) {
+			for (int j = 0; j < largeur; j++) {
+				Emplacement e = emplacements[i][j];
+				if (e != null) {
+					if (e.getVegetal().getEtat() == Etat.FLEUR) {
+						emplacements[i][j] = null;
+					}
+				}
+			}
 		}
 	}
 

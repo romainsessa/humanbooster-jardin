@@ -8,7 +8,8 @@ public class Terre {
 
 		j.ajouterPanier("Tomate", 5);
 		j.ajouterPanier("Carotte", 5);
-		j.ajouterPanier("Ail", 5);
+		j.ajouterPanier
+		("Ail", 5);
 		j.ajouterPanier("Betterave", 5);
 
 		Scanner scanner = new Scanner(System.in);
@@ -28,12 +29,10 @@ public class Terre {
 				j.semer();
 				break;
 			case 2:
-				// appeler recolter
-				System.out.println("recolter");
+				j.recolter();
 				break;
 			case 3:
-				// appeler saisonSuivante
-				System.out.println("saisonSuivante");
+				j.saisonSuivante();
 				break;
 			}
 

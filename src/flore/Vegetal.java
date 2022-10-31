@@ -5,6 +5,10 @@ public abstract class Vegetal {
 	protected char[] dessin;
 
 	private Etat etat;
+	
+	public Etat getEtat() {
+		return etat;
+	}
 
 	public Vegetal() {
 		dessin = new char[6];
@@ -18,6 +22,12 @@ public abstract class Vegetal {
 	@Override
 	public String toString() {
 		return String.valueOf(dessin[etat.ordinal()]);
+	}
+
+	public void grandir() {
+		if (etat != Etat.MORT) {
+			etat = Etat.values()[this.etat.ordinal() + 1];
+		}
 	}
 
 }
