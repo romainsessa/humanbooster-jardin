@@ -28,7 +28,7 @@ public class Jardin {
 	}
 
 	public void ajouterPanier(final String nomDuVegetal, final Integer quantite) {
-		if(this.panier.containsKey(nomDuVegetal)) {
+		if (this.panier.containsKey(nomDuVegetal)) {
 			this.panier.put(nomDuVegetal, this.panier.get(nomDuVegetal) + quantite);
 		}
 		this.panier.put(nomDuVegetal, quantite);
@@ -51,12 +51,11 @@ public class Jardin {
 		}
 		builder.append("Et notre panier contient :\n");
 		Set<String> keys = this.panier.keySet();
-		for (String key : keys) {
-			builder.append(key);
-			builder.append(" : ");
-			builder.append(this.panier.get(key));
-			builder.append(" graine(s)\n");
-		}
+
+		keys.forEach((key) -> {
+			builder.append(key + " : " + this.panier.get(key) + " graines(s)\n");
+		});
+
 		return builder.toString();
 	}
 

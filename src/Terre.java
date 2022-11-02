@@ -46,7 +46,6 @@ public class Terre {
 			} catch (InputMismatchException e) {
 				System.err.println("Veuillez saisir un chiffre, les charactères sont interdits.");
 			}
-
 		} while (choice != 4);
 	}
 
