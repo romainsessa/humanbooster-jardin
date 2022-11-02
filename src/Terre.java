@@ -1,15 +1,20 @@
+import java.util.HashMap;
 import java.util.Scanner;
+
+import flore.Ail;
 
 public class Terre {
 
 	public static void main(String[] args) {
 
-		Jardin j = new Jardin(5, 3);
+		Ail ail = new Ail();
+		ail.seReproduire(new HashMap<>());
+		
+		Jardin j = new Jardin(2, 2);
 
 		j.ajouterPanier("Tomate", 5);
 		j.ajouterPanier("Carotte", 5);
-		j.ajouterPanier
-		("Ail", 5);
+		j.ajouterPanier("Ail", 5);
 		j.ajouterPanier("Betterave", 5);
 
 		Scanner scanner = new Scanner(System.in);

@@ -1,3 +1,4 @@
+import java.util.AbstractMap.SimpleEntry;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
@@ -6,6 +7,8 @@ import flore.Ail;
 import flore.Betterave;
 import flore.Carotte;
 import flore.Etat;
+import flore.IOgm;
+import flore.IRacePure;
 import flore.Tomate;
 import flore.Vegetal;
 
@@ -102,14 +105,28 @@ public class Jardin {
 			}
 		}
 	}
-	
+
 	public void recolter() {
 		for (int i = 0; i < longueur; i++) {
 			for (int j = 0; j < largeur; j++) {
 				Emplacement e = emplacements[i][j];
 				if (e != null) {
-					if (e.getVegetal().getEtat() == Etat.FLEUR) {
+					Vegetal veg = e.getVegetal();
+					if (veg.getEtat() == Etat.FLEUR) {
 						emplacements[i][j] = null;
+
+						if (veg instanceof IRacePure) {
+							IRacePure racePure = (IRacePure) veg;
+							racePure.seReproduire(panier);
+						} else if (veg instanceof IOgm) {
+							IOgm ogm = (IOgm) veg;
+
+							SimpleEntry<Integer, Integer> nouvellesCoordonnees = ogm.seDupliquer(longueur, largeur);
+							Integer nouveauX = nouvellesCoordonnees.getKey();
+							Integer nouveauY = nouvellesCoordonnees.getValue();
+
+							emplacements[nouveauX][nouveauY] = new Emplacement(veg);
+						}
 					}
 				}
 			}

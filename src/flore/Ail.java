@@ -1,6 +1,6 @@
 package flore;
 
-public class Ail extends Vegetal {
+public class Ail extends RacePure {
 
 	public Ail() {
 		dessin[3] = 'a';

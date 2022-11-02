@@ -1,6 +1,6 @@
 package flore;
 
-public class Carotte extends Vegetal {
+public class Carotte extends RacePure {
 
 	public Carotte() {
 		dessin[3] = 'c';

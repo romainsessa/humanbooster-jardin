@@ -4,7 +4,7 @@ public abstract class Vegetal {
 
 	protected char[] dessin;
 
-	private Etat etat;
+	protected Etat etat;
 	
 	public Etat getEtat() {
 		return etat;
