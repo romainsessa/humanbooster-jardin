@@ -8,7 +8,7 @@ public class Emplacement {
 		return vegetal;
 	}
 
-	public Emplacement(Vegetal vegetal) {
+	public Emplacement(final Vegetal vegetal) {
 		this.vegetal = vegetal;
 	}
 

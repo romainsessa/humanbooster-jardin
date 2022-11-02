@@ -1,15 +1,10 @@
-import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import flore.Ail;
 
 public class Terre {
 
 	public static void main(String[] args) {
 
-		Ail ail = new Ail();
-		ail.seReproduire(new HashMap<>());
-		
 		Jardin j = new Jardin(2, 2);
 
 		j.ajouterPanier("Tomate", 5);
@@ -17,9 +12,10 @@ public class Terre {
 		j.ajouterPanier("Ail", 5);
 		j.ajouterPanier("Betterave", 5);
 
-		Scanner scanner = new Scanner(System.in);
-		int choice = 4;
+		int choice = 0;
+
 		do {
+			Scanner scanner = new Scanner(System.in);
 			System.out.println(j);
 
 			System.out.println("Que voulez vous faire ?");
@@ -28,21 +24,30 @@ public class Terre {
 			System.out.println("3. Passer à la saison suivante (toutes les plantes grandissent)");
 			System.out.println("4. Quitter l'application");
 
-			choice = scanner.nextInt();
-			switch (choice) {
-			case 1:
-				j.semer();
-				break;
-			case 2:
-				j.recolter();
-				break;
-			case 3:
-				j.saisonSuivante();
-				break;
+			try {
+				choice = scanner.nextInt();
+				switch (choice) {
+				case 1:
+					j.semer();
+					break;
+				case 2:
+					j.recolter();
+					break;
+				case 3:
+					j.saisonSuivante();
+					break;
+				case 4:
+					System.out.println("See you soon");
+					break;
+				default:
+					System.err.println("Veuillez saisir un chiffre entre 1 et 4");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.err.println("Veuillez saisir un chiffre, les charactères sont interdits.");
 			}
 
 		} while (choice != 4);
-		System.out.println("See you soon");
 	}
 
 }

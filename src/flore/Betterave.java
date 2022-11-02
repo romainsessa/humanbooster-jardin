@@ -11,7 +11,7 @@ public class Betterave extends Vegetal implements IOgm {
 	}
 
 	@Override
-	public SimpleEntry<Integer, Integer> seDupliquer(int longueur, int largeur) {
+	public SimpleEntry<Integer, Integer> seDupliquer(final int longueur, final int largeur) {
 		Random r = new Random();
 		int x = r.nextInt(longueur);
 		int y = r.nextInt(largeur);
